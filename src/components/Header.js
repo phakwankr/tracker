@@ -35,7 +35,7 @@ const Header = () => {
         </Tabs>
         </Box>}
         <Box display="flex" marginLeft="auto">
-          <Button 
+        { !isLoggedIn && <>  <Button 
             LinkComponent={Link} 
             to="/auth"
             variant="contained"
@@ -48,10 +48,11 @@ const Header = () => {
             to="/auth"
             variant="contained" 
             sx={{ margin:'1',borderRadius:10 }} 
-            color="warning">Sign Up</Button
-          >
+            color="warning">Sign Up
+            </Button></>}
 
-        { isLoggedIn && <Button 
+        { isLoggedIn && 
+          <Button 
             LinkComponent={Link} 
             to="/auth"
             variant="contained" 
