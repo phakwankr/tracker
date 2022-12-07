@@ -3,14 +3,16 @@ import Home from "./components/Home";
 import UserDashboard from "./components/UserDashboard";
 import Detail from "./components/Profile";
 import Add from "./components/Add";
-
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Auth from "./components/Auth";
+import { useSelector } from "react-redux";
 
 function App() {
-  
-  return <React.Fragment>
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  console.log(isLoggedIn);
+  return (
+  <React.Fragment>
     <header>
       <Header/>
     </header>
@@ -24,5 +26,6 @@ function App() {
       </Routes>
     </main>
   </React.Fragment>
+  )
 };
 export default App
