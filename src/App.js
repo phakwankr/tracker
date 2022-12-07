@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Dashboard from "./components/Dashboard";
+import UserDash from "./components/UserDash";
+import Detail from "./components/Detail";
+import Add from "./components/Add";
+
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Auth from "./components/Auth";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+  return <React.Fragment>
+    <header>
+      <Header/>
+    </header>
+    <main>
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/myDashboard" element={<UserDash />} />
+        <Route path="/myDashboard/:id" element={<Detail />} />
+        <Route path="/dashboard/add" element={<Add />} />
+      </Routes>
+    </main>
+  </React.Fragment>
+};
+export default App
